@@ -13,6 +13,8 @@ namespace SalesWebMVC.Controllers
             _logger = logger;
         }
 
+
+
         public IActionResult Index()
         {
             return View();
@@ -20,6 +22,7 @@ namespace SalesWebMVC.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["nome"] = "Arthur Silva Marques Figueirinha";
             return View();
         }
 
