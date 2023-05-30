@@ -7,7 +7,7 @@ using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<SalesWebMVCContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
