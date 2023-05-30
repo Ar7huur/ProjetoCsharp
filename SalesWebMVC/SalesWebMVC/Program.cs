@@ -33,13 +33,19 @@ builder.Services.AddScoped<SeedingService>();
 var app = builder.Build();
 
 //Seller Service
-builder.Services.AddTransient<SeedingService>();
+/*builder.Services.AddTransient<SeedingService>();
 if (args.Length == 1 && args[0].ToLower() == "seeddata")
     SeedData(app);
 
 void SeedData(IHost app) {
-    throw new NotImplementedException();
-}
+    var scopedFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope()) {
+        var service = scope.ServiceProvider.GetService<SeedingService>();
+        service.Seed();
+    }
+}*/
+
+
 
 
 
