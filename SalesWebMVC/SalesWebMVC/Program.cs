@@ -18,10 +18,17 @@ using System.Configuration;
 
 //Program & Startup
 
+//Conexão para o SQL Server
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SalesWebMVCContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+//Registro de inserção de dependência da aplicação.
+builder.Services.AddScoped<SeedingService>();
+
+SeedingService.Seed();
 
 var app = builder.Build();
 
