@@ -28,7 +28,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 //Registro de inserção de dependência da aplicação.
 builder.Services.AddScoped<SeedingService>();
 
-SeedingService.Seed();
+//builder.Services.Configure<SeedingService.Seed>();
 
 var app = builder.Build();
 
