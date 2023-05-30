@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMVC.Data;
 using System.Configuration;
+using SalesWebMVC.Services;
+
 
 //problema do Erro HTTPS
 // Add services to the container.
@@ -28,9 +30,18 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 //Registro de inserção de dependência da aplicação.
 builder.Services.AddScoped<SeedingService>();
 
-//builder.Services.Configure<SeedingService.Seed>();
-
 var app = builder.Build();
+
+//Seller Service
+builder.Services.AddTransient<SeedingService>();
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+    SeedData(app);
+
+void SeedData(IHost app) {
+    throw new NotImplementedException();
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
